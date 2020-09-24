@@ -145,7 +145,7 @@ At: {message.created_at.strftime('%m/%d/%Y, %H:%M:%S')}
             if role == modrole:
                 hasperms = True
     if hasperms:
-        if str(ctx.message.channel.id) in ticketdata["tickets"]:
+        if str(ctx.message.channel.name).startswith("ticket-"):
             ticketdata["tickets"].pop(str(ctx.message.channel.id))
             with open(f"{ctx.channel.name}_Transcript", "w", encoding="utf-8") as f:
                 for message in allmessage:
